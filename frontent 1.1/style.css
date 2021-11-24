@@ -1,0 +1,293 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.banner {
+  background-color: lightcoral;
+  padding-block: 40px;
+  text-align: center;
+}
+.model {
+  height: 70vh;
+  background-color: lightcyan;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  padding: 10px;
+  overflow: hidden;
+}
+.form-generator {
+  width: 100%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 0;
+}
+.json-container {
+  width: 100%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.container {
+  background-color: whitesmoke;
+  margin: 5px;
+  padding: 5px;
+  height: 100%;
+  overflow-y: scroll;
+  z-index: 0;
+}
+.form-element {
+  padding-block: 10px;
+  padding-inline: 30px;
+  margin-block: 5px;
+  border: 2px solid black;
+  position: relative;
+}
+.draggable-handle {
+  position: absolute;
+  inset: 0 98.5% 0 0;
+  background-color: lightslategray;
+  color: darkslategray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: move;
+}
+@media (max-width: 1200px) {
+  .draggable-handle {
+    inset: 0 97.5% 0 0;
+  }
+}
+.element-properties {
+  margin-block-start: 10px;
+  display: grid;
+  gap: 0.3em;
+  grid-template-areas:
+    "select required"
+    "prompt promptfield"
+    "label labelfield"
+    "name namefield"
+    "options options";
+}
+
+.control-btn {
+  border-radius: 50%;
+  background-color: royalblue;
+  color: white;
+}
+.btn-addEl {
+  width: 2em;
+  height: 2em;
+  font-size: 1.2em;
+}
+.btn-removeEl {
+  position: absolute;
+  width: 1.5em;
+  height: 1.5em;
+  top: 5px;
+  right: 5px;
+  font-size: 0.8em;
+}
+.btn-add-option,
+.btn-remove-option {
+  width: 1.5em;
+  height: 1.5em;
+  font-size: 0.8em;
+}
+.form-controls {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.custom-properties {
+  position: relative;
+  grid-area: options;
+}
+.element-choice {
+  position: absolute;
+  left: 60%;
+  bottom: -1rem;
+  background-color: white;
+  border: 0.5px solid black;
+  border-radius: 1rem;
+  box-shadow: 0 0 0.5px 0.5px gray;
+  padding: 5px;
+  list-style: none;
+  transition: 350ms ease-in;
+  z-index: 10;
+}
+.element-choice > li {
+  margin-block: 10px;
+  padding-top: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.element-choice > li:nth-child(1n) {
+  border-top: 1px solid black;
+}
+.element-choice > li:first-child {
+  border-top: none;
+  margin-block-start: 0;
+}
+.element-choice > li:hover {
+  transform: translateY(-1px);
+  color: gray;
+}
+/*
+.element-choice::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  bottom: -30px;
+  left: 32%;
+  right: 32%;
+  background-color: white;
+  transform: translateY(-50%) rotateZ(45deg);
+  z-index: 2;
+}*/
+.prompt {
+  position: absolute;
+  right: 0;
+  width: 24.5vw;
+}
+.select-options {
+  margin-top: 10px;
+  display: grid;
+  grid-auto-flow: column;
+  /*grid-template-areas:
+    "title title title"
+    "label name controls";*/
+}
+.select-options__title {
+  grid-area: 1/1;
+}
+.option-container {
+  margin-left: 4vw;
+  width: max-content;
+  display: grid;
+  grid-column: 1;
+  grid-template-columns: repeat(auto-fit, max-content);
+}
+.select-options .option-container:nth-child(1) {
+  grid-row: 2;
+}
+.select-options .option-container:nth-child(2) {
+  grid-row: calc(2n+1);
+}
+.select-options .option-container:nth-child(3) {
+  grid-row: calc(3n);
+}
+.option-label {
+  grid-area: 1/1;
+  max-width: 3rem;
+  padding-right: 10px;
+}
+.option-key {
+  grid-area: 1/2;
+  width: 4rem;
+}
+.option-key-label {
+  grid-area: 1/3;
+  width: 1.5rem;
+  padding-left: 10px;
+}
+.option-name {
+  grid-area: 1/4;
+  width: 10rem;
+}
+.options-controls {
+  grid-area: 1/5;
+  margin-left: 10px;
+}
+
+.saver {
+  padding-block-start: 10px;
+  padding-block-end: 20px;
+  padding-inline: 10px;
+  background-color: lightgreen;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.json-preview {
+  position: relative;
+  width: 100%;
+  background-color: black;
+  color: yellow;
+  /*padding: 10px;*/
+}
+.btn-copy,
+.btn-edit,
+.btn-clear,
+.btn-submit {
+  padding-block: 10px;
+  padding-inline: 25px;
+}
+footer {
+  background-color: lightcoral;
+  padding-block: 20px;
+  text-align: center;
+}
+.hidden {
+  display: none;
+}
+.message {
+  position: absolute;
+  top: -50%;
+  left: 10%;
+  z-index: 1000;
+  color: red;
+  background-color: seashell;
+  padding: 10px;
+  border-radius: 2rem;
+  opacity: 1;
+  transform-origin: bottom;
+  transform: translateY(-50px);
+  /*transition: opacity 500ms ease-in-out;*/
+  transition: 500ms ease-in-out;
+}
+.success-message {
+  display: none;
+}
+.failure-message {
+  display: none;
+}
+/*dragging function*/
+
+.draggable {
+  padding: 1rem;
+  background-color: white;
+  border: 1px solid black;
+  /*cursor: move;*/
+}
+
+.draggable.dragging {
+  opacity: 0.5;
+}
+#editor {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  height: 59vh;
+}
+.ace_content {
+  height: 59vh;
+  overflow-y: scroll;
+}
+.ace_editor,
+.ace_editor * {
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", "Droid Sans Mono", "Consolas",
+    monospace !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+}

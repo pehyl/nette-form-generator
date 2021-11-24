@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="scripts.js" type="module"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.0/beautify.js"></script>
+
+    <title>Nette Form Generator Frondend</title>
+  </head>
+  <body>
+    <header class="banner">
+      <h1 class="title">Nette Form Generator Frontend 1.1</h1>
+    </header>
+    <section class="model">
+      <div class="form-generator">
+        <div class="container">
+          <div class="custom-form"></div>
+          <div class="form-controls">
+            <button
+              type="button"
+              class="control-btn btn-addEl"
+              title="Add new form element"
+            >
+              +
+            </button>
+            <ul class="element-choice hidden" data-menu>
+              <li id="text" class="element-choice__value">Text</li>
+              <li id="textarea" class="element-choice__value">Textarea</li>
+              <li id="selectbox" class="element-choice__value">Selectbox</li>
+              <li id="checkbox" class="element-choice__value">Checkbox</li>
+            </ul>
+          </div>
+        </div>
+        <div class="saver">
+          <button type="reset" class="btn-clear" title="Reset the application">
+            Reset
+          </button>
+          <button
+            type="submit"
+            class="btn-submit"
+            title="Generate JSON"
+            disabled
+          >
+            Generate JSON >>
+          </button>
+        </div>
+      </div>
+      <div class="json-container">
+        <div class="json-preview">
+          <div id="editor"></div>
+        </div>
+        <div class="saver">
+          <button
+            type="button"
+            class="btn-edit"
+            title="Generates editable fields"
+            disabled
+          >
+            << Edit JSON
+          </button>
+          <button
+            type="submit"
+            class="btn-copy"
+            title="Copy JSON to clipboard"
+            disabled
+          >
+            Copy JSON
+          </button>
+          <div class="message success-message">
+            JSON was successfully copied to clipboard
+          </div>
+          <div class="message failure-message">Something went wrong</div>
+        </div>
+      </div>
+    </section>
+    <footer>Boiler plate text</footer>
+  </body>
+</html>
